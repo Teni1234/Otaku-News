@@ -1,5 +1,37 @@
-body {
-  background: #0f1115;
-  color: #e5e7eb;
-  font-family: Arial, sans-serif;
+/* CABECERA */
+header {
+  background-color: #668eec;       /* Un gris oscuro diferente al fondo, para que destaque */
+  border-bottom: 2px solid #7c3aed; /* Línea violeta llamativa abajo */
+  padding: 20px;                   /* Espaciado interno */
+  position: sticky;                /* Siempre visible arriba al hacer scroll */
+  top: 0;
+  z-index: 1000;                   /* Asegura que esté encima de otros elementos */
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #7c3aed;                  /* Título violeta para resaltar la marca */
+  text-shadow: 0 0 10px rgba(124, 58, 237, 0.7); /* Efecto glow */
+}
+
+/* MENÚ */
+nav ul {
+  list-style: none;      /* Quitamos los puntitos de la lista */
+  display: flex;         /* Ponemos los elementos en línea (horizontal) */
+  gap: 20px;             /* Separación entre enlaces */
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: #e5e7eb;        /* Texto claro */
+  font-weight: bold;     /* En negrita */
+  text-decoration: none; /* Quitamos subrayado */
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+nav a:hover {
+  color: #7c3aed;        /* Al pasar el ratón, se pone violeta */
+  text-shadow: 0 0 6px rgba(124, 58, 237, 0.8); /* Brillo al pasar */
 }
