@@ -35,3 +35,68 @@ nav a:hover {
   color: #7c3aed;        /* Al pasar el ratón, se pone violeta */
   text-shadow: 0 0 6px rgba(124, 58, 237, 0.8); /* Brillo al pasar */
 }
+
+/* ===== Tarjetas (Cards) ===== */
+.card {
+  background-color: #4d79e0;         /* Fondo oscuro distinto al body */
+  border-radius: 12px;              /* Bordes redondeados */
+  overflow: hidden;                 /* Para que la imagen no sobresalga */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-bottom: 20px;              /* Espacio entre tarjetas */
+}
+
+.card:hover {
+  transform: translateY(-5px);      /* Efecto de elevarse */
+  box-shadow: 0 8px 20px rgba(124,58,237,0.6); /* Glow violeta al pasar */
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-body h3 {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #fff;
+}
+
+.card-body p {
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.card-body time {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #0b0e11;
+}
+
+.badge {
+  display: inline-block;
+  background: #7c3aed;   /* Violeta */
+  color: white;
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.card-grid {
+  display: grid;
+  gap: 20px; /* separación entre tarjetas */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+body {
+  background: #1d2928;
+  color: #e5e7eb;
+  font-family: Arial, sans-serif;
+}

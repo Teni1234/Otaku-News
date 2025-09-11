@@ -4,48 +4,76 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Otakunews</title>
-  <meta  name="description" content = "Noticias actuales de anime, Videojuegos y cultura geek" />
+  <meta name="description" content="Noticias actuales de anime, videojuegos y cultura geek" />
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class = "site-header">
+  <!-- CABECERA -->
+  <header class="site-header">
     <div class="container header-row">
-        <a class="logo" href="#home" aria-label="Ir al inicio">Otakunews</a>
+      <a class="logo" href="#home" aria-label="Ir al inicio">Otakunews</a>
 
-        <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
-            ☰
-        </button>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+        ☰
+      </button>
 
-        <!--Menu principal -->
-        <nav class="main-nav" aria-label="Navegacion principal">
-            <ul id="menu" class="menu">
-                <li><a href="#home">Incio</a></li>
-                <li><a href="#anime">Anime</a></li>
-                <li><a href="#juegos">juegos</a></li>
-                <li><a href="#noticias">Noticias</a></li>
-            </ul>
-        </nav>
-        
+      <!-- Menú principal -->
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul id="menu" class="menu">
+          <li><a href="#home">Inicio</a></li>
+          <li><a href="#anime">Anime</a></li>
+          <li><a href="#juegos">Videojuegos</a></li>
+          <li><a href="#noticias">Noticias</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
   <main>
-    <section id="#home">
-        <h2>tu feed friki</h2>
-        <p>Anime.videojuegos</p>
+    <!-- PORTADA / HERO -->
+    <section id="home">
+      <h1>Tu feed friki</h1>
+      <p>Anime, videojuegos y cultura geek en un solo lugar.</p>
     </section>
-   
+
     <!-- SECCIÓN ANIME -->
     <section id="anime">
       <h2>Anime</h2>
+    <div class="card-grid">
+      <article class="card anime">
+        <img src="img/digimonstranger.jpg" alt="Portada de anime" loading="lazy">
+        <div class="card-body">
+        <div class="badge">Anime</div>
+        <h3>Digimon Story  Time Stranger</h3>
+        <p>Resumen corto de prueba para ver cómo se vería una noticia de anime.</p>
+        <time datetime="2025-09-11">11 septiembre 2025</time>
+        </div>
+    </article>
+    <article class="card anime">
+        <img src="img/digimonstranger.jpg" alt="Portada de anime" loading="lazy">
+        <div class="card-body">
+        <div class="badge">Anime</div>
+        <h3>Digimon Story  Time Stranger</h3>
+        <p>Resumen corto de prueba para ver cómo se vería una noticia de anime.</p>
+        <time datetime="2025-09-11">11 septiembre 2025</time>
+        </div>
+    </article>
+    </div>
+    </section>
+
+    <!-- SECCIÓN VIDEOJUEGOS -->
+    <section id="juegos">
+      <h2>Videojuegos</h2>
 
       <article>
-        <h3>Episodio especial de temporada</h3>
-        <p>Resumen corto de prueba para ver cómo se vería una noticia de anime.</p>
+        <h3>Lanzamiento destacado</h3>
+        <p>Detalles rápidos del juego en cuestión.</p>
       </article>
 
       <article>
-        <h3>Nuevo estreno anunciado</h3>
-        <p>Otro resumen de ejemplo de una noticia anime.</p>
+        <h3>Parche 1.0.5</h3>
+        <p>Notas del parche simuladas, solo para probar el layout.</p>
       </article>
     </section>
 
@@ -58,7 +86,8 @@
         <p>Un bloque para noticias que mezclan anime + videojuegos.</p>
       </article>
     </section>
- </main>
+  </main>
+
   <!-- PIE DE PÁGINA -->
   <footer>
     <p>© 2025 Otakunews — Hecho con cariño friki</p>
