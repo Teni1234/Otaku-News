@@ -2,12 +2,32 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Otakunews</title>
+  <meta  name="description" content = "Noticias actuales de anime, Videojuegos y cultura geek" />
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Bienvenido a Otakunews</h1>
-  <p>Anime, videojuegos y más...</p>
-  <script src="app.js"></script>
+  <header class = "site-header">
+    <div class="container header-row">
+        <a class="logo" href="#home" aria-label="Ir al inicio">Otakunews</a>
+
+        <button class="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+            ☰
+        </button>
+
+        <!--Menu principal -->
+        <nav class="main-nav" aria-label="Navegacion principal">
+            <ul id="menu" class="menu">
+                <li><a href="#home">Incio</a></li>
+                <li><a href="#anime">Anime</a></li>
+                <li><a href="#juegos">juegos</a></li>
+                <li><a href="#noticias">Noticias</a></li>
+            </ul>
+        </nav>
+        
+    </div>
+  </header>
+  
 </body>
 </html>
