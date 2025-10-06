@@ -1,20 +1,30 @@
 /* ================================
    BASE / RESETEO SUAVE
 ================================== */
+:root {
+  --container-max: 900px; /* ancho total de la página */
+  --cards-max: 920px;      /* ancho máximo de las tarjetas */
+}
+
 html { scroll-behavior: smooth; }
 * { box-sizing: border-box; }
 img { max-width: 100%; display: block; }
 
 /* Tipografía y colores base (fondo oscuro + texto claro) */
 body {
-  background: #1d2928;       /* tu fondo oscuro original */
+  background: #fde2fa;       /* tu fondo oscuro original */
   color: #e5e7eb;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
 }
 
 /* Contenedor y filas básicas */
-.container { max-width: 700px; margin: 0 auto; padding: 0 16px; }
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 16px;
+  background-color: #ffffff;
+}
 section { padding: 40px 0; }
 .header-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 
