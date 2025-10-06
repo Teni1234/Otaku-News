@@ -1,165 +1,207 @@
-/* CABECERA */
-header {
-  background-color: #668eec;       /* Un gris oscuro diferente al fondo, para que destaque */
-  border-bottom: 2px solid #7c3aed; /* Línea violeta llamativa abajo */
-  padding: 20px;                   /* Espaciado interno */
-  position: sticky;                /* Siempre visible arriba al hacer scroll */
-  top: 0;
-  z-index: 1000;                   /* Asegura que esté encima de otros elementos */
-}
+/* ================================
+   BASE / RESETEO SUAVE
+================================== */
+html { scroll-behavior: smooth; }
+* { box-sizing: border-box; }
+img { max-width: 100%; display: block; }
 
-header h1 {
-  margin: 0;
-  font-size: 28px;
-  color: #7c3aed;                  /* Título violeta para resaltar la marca */
-  text-shadow: 0 0 10px rgba(124, 58, 237, 0.7); /* Efecto glow */
-}
-
-/* MENÚ */
-nav ul {
-  list-style: none;      /* Quitamos los puntitos de la lista */
-  display: flex;         /* Ponemos los elementos en línea (horizontal) */
-  gap: 20px;             /* Separación entre enlaces */
-  margin: 0;
-  padding: 0;
-}
-
-nav a {
-  color: #e5e7eb;        /* Texto claro */
-  font-weight: bold;     /* En negrita */
-  text-decoration: none; /* Quitamos subrayado */
-  transition: color 0.3s, text-shadow 0.3s;
-}
-
-nav a:hover {
-  color: #7c3aed;        /* Al pasar el ratón, se pone violeta */
-  text-shadow: 0 0 6px rgba(124, 58, 237, 0.8); /* Brillo al pasar */
-}
-
-/* ===== Tarjetas (Cards) ===== */
-.card {
-  background-color: #4d79e0;         /* Fondo oscuro distinto al body */
-  border-radius: 12px;              /* Bordes redondeados */
-  overflow: hidden;                 /* Para que la imagen no sobresalga */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  transition: transform 0.3s, box-shadow 0.3s;
-  margin-bottom: 20px;              /* Espacio entre tarjetas */
-}
-
-.card:hover {
-  transform: translateY(-5px);      /* Efecto de elevarse */
-  box-shadow: 0 8px 20px rgba(124,58,237,0.6); /* Glow violeta al pasar */
-}
-
-.card img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.card-body {
-  padding: 15px;
-}
-
-.card-body h3 {
-  margin: 10px 0;
-  font-size: 18px;
-  color: #fff;
-}
-
-.card-body p {
-  color: #cbd5e1;
-  font-size: 14px;
-}
-
-.card-body time {
-  display: block;
-  margin-top: 10px;
-  font-size: 12px;
-  color: #0b0e11;
-}
-
-.badge {
-  display: inline-block;
-  background: #7c3aed;   /* Violeta */
-  color: white;
-  font-size: 12px;
-  padding: 3px 8px;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-}
-
-.card-grid {
-  display: grid;
-  gap: 20px; /* separación entre tarjetas */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
+/* Tipografía y colores base (fondo oscuro + texto claro) */
 body {
-  background: #1d2928;
+  background: #1d2928;       /* tu fondo oscuro original */
   color: #e5e7eb;
-  font-family: Arial, sans-serif;
-}
-/* ——— Header pro ——— */
-.site-header { 
-  position: sticky; top: 0; z-index: 1000; padding: 12px 0;
-  background: linear-gradient(180deg, #668eec 0%, rgba(102,142,236,.85) 60%, rgba(102,142,236,0) 100%);
-  backdrop-filter: blur(4px);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
 }
 
-.site-header .logo {
+/* Contenedor y filas básicas */
+.container { max-width: 700px; margin: 0 auto; padding: 0 16px; }
+section { padding: 40px 0; }
+.header-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+
+/* ================================
+   HEADER (estilo revista)
+================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #ffffff;                            /* header blanco */
+  border-bottom: 1px solid rgba(2,6,23,.08);            /* línea sutil */
+  padding: 10px 0;                                      /* altura compacta */
+}
+
+/* Logo limpio en header */
+.site-header .logo,
+.site-header .logo:link,
+.site-header .logo:visited {
+  color: #0b0e11;              /* negro suave */
+  text-decoration: none;
+  text-shadow: none;
+  font-size: 22px;
   font-weight: 800;
   letter-spacing: .3px;
 }
 
-.site-header .logo,
-.site-header .logo:link,
-.site-header .logo:visited {
-  color: #7c3aed; text-decoration: none;
-  text-shadow: 0 0 10px rgba(124,58,237,.7);
+/* Navegación (solo dentro del header) */
+.site-header .menu {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
 }
-
-/* Menú más legible y con “estado activo” visual */
-.menu a { 
+.site-header .menu a {
+  color: #0b0e11;
+  font-weight: 700;
+  text-decoration: none;
   position: relative;
-  padding: 6px 2px;
+  padding: 6px 0;
+  transition: color .25s ease;
 }
-
-.menu a:hover { color: #7c3aed; text-shadow: 0 0 6px rgba(124,58,237,.8); }
-
-/* subrayado suave al pasar (estilo “medio Vandal”) */
-.menu a::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px;
-  transform: scaleX(0); transform-origin: left; transition: transform .25s;
+.site-header .menu a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -4px;
+  height: 2px;
   background: #7c3aed;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
 }
-.menu a:hover::after { transform: scaleX(1); }
+.site-header .menu a:hover {
+  color: #7c3aed;
+}
+.site-header .menu a:hover::after {
+  transform: scaleX(1);
+}
 
-/* Suaviza el salto al hacer click en el menú */
-html { scroll-behavior: smooth; }
+/* Menú móvil (lo haremos funcional más tarde con JS) */
+.nav-toggle { display: none; background: transparent; border: 0; font-size: 28px; }
+@media (max-width: 768px) {
+  .nav-toggle { display: block; }
+  .site-header .menu {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background: rgba(0,0,0,.05);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .site-header .menu.is-open { display: flex; }
+}
 
-/* Mantener proporción 16:9 y permitir zoom suave */
-.card-media { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; }
-.card-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
+/* ================================
+   HERO (opcional básico)
+================================== */
+#home h1, #home h2 { margin: 0 0 8px; }
+#home p { margin: 0; opacity: .9; }
 
-/* Cuerpo con jerarquía */
+/* ================================
+   TARJETAS (tu estilo refinado)
+================================== */
+
+/* Grid: 1 columna en móvil, 2 en pantallas medianas+ (estilo revista) */
+.card-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 600px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Tarjeta base (manteniendo tu look) */
+.card {
+  background-color: #4d79e0;                 /* tu fondo de tarjeta */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.50);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(124,58,237,0.35);
+}
+
+/* Imagen con proporción fija y zoom suave */
+.card img {        /* para compatibilidad con tus tarjetas antiguas */
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+.card:hover img { transform: scale(1.05); }
+
+/* Si usas el contenedor moderno .card-media */
+.card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+.card-media img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.35s ease;
+}
+.card:hover .card-media img { transform: scale(1.05); }
+
+/* Cuerpo y tipografías de tarjeta (refinadas) */
 .card-body { padding: 14px; }
-.card-title { margin: 8px 0 6px; font-size: 18px; line-height: 1.25; color: #fff; }
-.card-summary { color: #cbd5e1; font-size: 14px; line-height: 1.45;
-  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.card-date { display: block; margin-top: 10px; font-size: 12px; color: #e5e7eb; opacity: .75; }
+.card-body h3,
+.card-title {
+  margin: 8px 0 6px;
+  font-size: 20px;
+  line-height: 1.3;
+  color: #ffffff;
+  font-weight: 700;
+}
+.card-body p,
+.card-summary {
+  color: #d1d5db;
+  font-size: 14px;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;          /* máximo 2 líneas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0;
+}
+.card-body time,
+.card-date {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #94a3b8;
+}
 
-/* Hover pro */
-.card { transition: transform .25s ease, box-shadow .25s ease; }
-.card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(124,58,237,.35); }
-.card:hover .card-media img { transform: scale(1.04); }
+/* Badge mejorado (tu violeta, con degradado sutil) */
+.badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+}
 
-/* Asegura contenedor y fila del header */
-.container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
-.header-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+/* Si quieres badge superpuesto en la imagen (estilo Ramen) */
+.badge-overlay {
+  position: absolute;
+  top: 10px; left: 10px;
+  background: #7c3aed;
+  color: #fff;
+  font-size: 12px; font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+}
 
-/* Quita la línea violeta del header antiguo (si aún se ve) */
-.site-header { border-bottom: none; }
-
-/* Usa la fecha nueva (más visible) */
-.card-date { display: block; margin-top: 10px; font-size: 12px; color: #e5e7eb; opacity: .75; }
+/* ================================
+   UTILIDADES
+================================== */
+.hidden { display: none !important; }
