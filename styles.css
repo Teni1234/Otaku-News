@@ -100,3 +100,66 @@ body {
   color: #e5e7eb;
   font-family: Arial, sans-serif;
 }
+/* ——— Header pro ——— */
+.site-header { 
+  position: sticky; top: 0; z-index: 1000; padding: 12px 0;
+  background: linear-gradient(180deg, #668eec 0%, rgba(102,142,236,.85) 60%, rgba(102,142,236,0) 100%);
+  backdrop-filter: blur(4px);
+}
+
+.site-header .logo {
+  font-weight: 800;
+  letter-spacing: .3px;
+}
+
+.site-header .logo,
+.site-header .logo:link,
+.site-header .logo:visited {
+  color: #7c3aed; text-decoration: none;
+  text-shadow: 0 0 10px rgba(124,58,237,.7);
+}
+
+/* Menú más legible y con “estado activo” visual */
+.menu a { 
+  position: relative;
+  padding: 6px 2px;
+}
+
+.menu a:hover { color: #7c3aed; text-shadow: 0 0 6px rgba(124,58,237,.8); }
+
+/* subrayado suave al pasar (estilo “medio Vandal”) */
+.menu a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px;
+  transform: scaleX(0); transform-origin: left; transition: transform .25s;
+  background: #7c3aed;
+}
+.menu a:hover::after { transform: scaleX(1); }
+
+/* Suaviza el salto al hacer click en el menú */
+html { scroll-behavior: smooth; }
+
+/* Mantener proporción 16:9 y permitir zoom suave */
+.card-media { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; }
+.card-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
+
+/* Cuerpo con jerarquía */
+.card-body { padding: 14px; }
+.card-title { margin: 8px 0 6px; font-size: 18px; line-height: 1.25; color: #fff; }
+.card-summary { color: #cbd5e1; font-size: 14px; line-height: 1.45;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.card-date { display: block; margin-top: 10px; font-size: 12px; color: #e5e7eb; opacity: .75; }
+
+/* Hover pro */
+.card { transition: transform .25s ease, box-shadow .25s ease; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(124,58,237,.35); }
+.card:hover .card-media img { transform: scale(1.04); }
+
+/* Asegura contenedor y fila del header */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+.header-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+
+/* Quita la línea violeta del header antiguo (si aún se ve) */
+.site-header { border-bottom: none; }
+
+/* Usa la fecha nueva (más visible) */
+.card-date { display: block; margin-top: 10px; font-size: 12px; color: #e5e7eb; opacity: .75; }

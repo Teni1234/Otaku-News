@@ -39,44 +39,38 @@
 
     <!-- SECCIÓN ANIME -->
     <section id="anime">
-      <h2>Anime</h2>
+  <div class="container">
+    <h2>Anime</h2>
+
     <div class="card-grid">
-      <article class="card anime">
-        <img src="img/digimonstranger.jpg" alt="Portada de anime" loading="lazy">
-        <div class="card-body">
-        <div class="badge">Anime</div>
-        <h3>Digimon Story  Time Stranger</h3>
-        <p>Resumen corto de prueba para ver cómo se vería una noticia de anime.</p>
-        <time datetime="2025-09-11">11 septiembre 2025</time>
+      <!-- Tarjeta 1 (estructura nueva) -->
+      <article class="card">
+        <div class="card-media">
+          <img src="img/digimonstranger.jpg" alt="Digimon Story: Time Stranger" loading="lazy">
         </div>
-    </article>
-    <article class="card anime">
-        <img src="img/digimonstranger.jpg" alt="Portada de anime" loading="lazy">
         <div class="card-body">
-        <div class="badge">Anime</div>
-        <h3>Digimon Story  Time Stranger</h3>
-        <p>Resumen corto de prueba para ver cómo se vería una noticia de anime.</p>
-        <time datetime="2025-09-11">11 septiembre 2025</time>
+          <div class="badge">Anime</div>
+          <h3 class="card-title">Digimon Story: Time Stranger anunciado</h3>
+          <p class="card-summary">Nueva entrega con ambientación futurista y guiños a la serie clásica.</p>
+          <time class="card-date" datetime="2025-09-11">11 septiembre 2025</time>
         </div>
-    </article>
+      </article>
+
+      <!-- Tarjeta 2 (convierte la antigua al formato nuevo) -->
+      <article class="card">
+        <div class="card-media">
+          <img src="img/digimonstranger.jpg" alt="Portada de anime" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="badge">Anime</div>
+          <h3 class="card-title">Digimon Story Time Stranger</h3>
+          <p class="card-summary">Resumen corto de prueba para ver cómo se vería una noticia de anime.</p>
+          <time class="card-date" datetime="2025-09-11">11 septiembre 2025</time>
+        </div>
+      </article>
     </div>
-    </section>
-
-    <!-- SECCIÓN VIDEOJUEGOS -->
-    <section id="juegos">
-      <h2>Videojuegos</h2>
-
-      <article>
-        <h3>Lanzamiento destacado</h3>
-        <p>Detalles rápidos del juego en cuestión.</p>
-      </article>
-
-      <article>
-        <h3>Parche 1.0.5</h3>
-        <p>Notas del parche simuladas, solo para probar el layout.</p>
-      </article>
-    </section>
-
+  </div>
+</section>
     <!-- SECCIÓN NOTICIAS GENERALES -->
     <section id="noticias">
       <h2>Noticias</h2>
