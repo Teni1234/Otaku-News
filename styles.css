@@ -39,8 +39,8 @@ section { padding: 40px 0; }
 .header-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  justify-content: flex-start;
+  gap: 60px;
   height: var(--header-height-desktop); /* alto fijo → header estable */
   padding: 0 16px;                       /* solo padding lateral */
 }
@@ -74,6 +74,15 @@ section { padding: 40px 0; }
   width: auto;
   display: block;
   margin-top: 35px;
+
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.logo:hover img {
+  animation: bounce 0.4s;
 }
 
 /* Navegación principal dentro del header */
@@ -83,15 +92,21 @@ section { padding: 40px 0; }
   gap: 18px;
   margin: 0;
   padding: 0;
+  flex: 1;
+ 
+  
 }
 .site-header .menu a {
   color: var(--text-dark);
-  font-weight: 700;
+  font-weight: 800;
   text-decoration: none;
   position: relative;
   padding: 6px 0;                 /* padding vertical contenido */
   line-height: 1;                 /* evita que “engorde” el header */
   transition: color .25s ease;
+  font-size: 22px;
+
+ 
 }
 .site-header .menu a::after {
   content: "";
@@ -109,7 +124,16 @@ section { padding: 40px 0; }
 .site-header .menu a:hover::after {
   transform: scaleX(1);
 }
-
+.social-icons .icon {
+  width: 42px;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.social-icons .icon:hover {
+  transform: scale(1.2) rotate(5deg); /* efecto kawaii */
+}
 /* Toggle de navegación (móvil) */
 .nav-toggle {
   display: none;
