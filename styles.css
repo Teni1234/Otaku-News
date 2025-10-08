@@ -1,32 +1,49 @@
-/* ================================
-   BASE / RESETEO SUAVE
-================================== */
+
 :root {
-  --container-max: 900px; /* ancho total de la página */
-  --cards-max: 920px;      /* ancho máximo de las tarjetas */
+  --container-max: 900px;        /* ancho máximo de la página */
+  --cards-max: 920px;            /* ancho máximo de tarjetas (si lo usas) */
+
+  --header-height-desktop: 72px; /* alto fijo del header en desktop */
+  --header-height-mobile: 56px;  /* alto fijo del header en móvil */
+
+  --logo-max-desktop: 208px;      /* alto máximo del logo en desktop */
+  --logo-max-mobile: 32px;       /* alto máximo del logo en móvil */
+
+  --brand-violet: #7c3aed;
+  --text-dark: #0b0e11;
+  --page-bg: #fde2fa;            /* fondo general */
+  --card-bg: #4d79e0;            /* fondo de tarjetas */
 }
+
 
 html { scroll-behavior: smooth; }
 * { box-sizing: border-box; }
-img { max-width: 100%; display: block; }
-
-/* Tipografía y colores base (fondo oscuro + texto claro) */
+img { max-width: 100%; display: block; } /* evita desbordes */
 body {
-  background: #fde2fa;       /* tu fondo oscuro original */
-  color: #e5e7eb;
+  background: var(--page-bg);
+  color: #e5e7eb;                /* texto claro sobre fondo rosado */
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
 }
 
-/* Contenedor y filas básicas */
+/* Contenedor general centrado */
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 16px;
-  background-color: #ffffff;
+  background: #ffffff;           /* fondo blanco para contenido */
 }
+
+/* Estructura base */
 section { padding: 40px 0; }
-.header-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: var(--header-height-desktop); /* alto fijo → header estable */
+  padding: 0 16px;                       /* solo padding lateral */
+}
 
 /* ================================
    HEADER (estilo revista)
@@ -35,24 +52,31 @@ section { padding: 40px 0; }
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: #ffffff;                            /* header blanco */
-  border-bottom: 1px solid rgba(2,6,23,.08);            /* línea sutil */
-  padding: 10px 0;                                      /* altura compacta */
+  background: #ffffff;
+  border-bottom: 1px solid rgba(2,6,23,.08);
+  /* OJO: no uses padding vertical aquí, lo gobierna .header-row */
 }
 
-/* Logo limpio en header */
-.site-header .logo,
-.site-header .logo:link,
-.site-header .logo:visited {
-  color: #0b0e11;              /* negro suave */
+/* Logo (enlace que envuelve la imagen) */
+.site-header .logo {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  line-height: 1;       /* elimina espacio “fantasma” */
+  font-size: 0;         /* por si antes había texto */
+  color: inherit;
   text-decoration: none;
-  text-shadow: none;
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: .3px;
 }
 
-/* Navegación (solo dentro del header) */
+/* Tamaño del logo controlado: NUNCA mayor que el header */
+.site-header .logo img {
+  max-height: 260px;      /* el tamaño que quieras */
+  width: auto;
+  display: block;
+  margin-top: 30px;
+}
+
+/* Navegación principal dentro del header */
 .site-header .menu {
   list-style: none;
   display: flex;
@@ -61,11 +85,12 @@ section { padding: 40px 0; }
   padding: 0;
 }
 .site-header .menu a {
-  color: #0b0e11;
+  color: var(--text-dark);
   font-weight: 700;
   text-decoration: none;
   position: relative;
-  padding: 6px 0;
+  padding: 6px 0;                 /* padding vertical contenido */
+  line-height: 1;                 /* evita que “engorde” el header */
   transition: color .25s ease;
 }
 .site-header .menu a::after {
@@ -73,22 +98,40 @@ section { padding: 40px 0; }
   position: absolute;
   left: 0; right: 0; bottom: -4px;
   height: 2px;
-  background: #7c3aed;
+  background: var(--brand-violet);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform .25s ease;
 }
 .site-header .menu a:hover {
-  color: #7c3aed;
+  color: var(--brand-violet);
 }
 .site-header .menu a:hover::after {
   transform: scaleX(1);
 }
 
-/* Menú móvil (lo haremos funcional más tarde con JS) */
-.nav-toggle { display: none; background: transparent; border: 0; font-size: 28px; }
+/* Toggle de navegación (móvil) */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  font-size: 28px;
+  line-height: 1;
+  padding: 8px 10px;  /* tamaño razonable sin forzar altura */
+}
+
+/* ================================
+   RESPONSIVE (móvil)
+================================== */
 @media (max-width: 768px) {
+  .header-row {
+    height: var(--header-height-mobile);     /* header compacto */
+  }
+  .site-header .logo img {
+    max-height: var(--logo-max-mobile);      /* logo más pequeño */
+  }
   .nav-toggle { display: block; }
+
   .site-header .menu {
     display: none;
     flex-direction: column;
@@ -101,28 +144,24 @@ section { padding: 40px 0; }
 }
 
 /* ================================
-   HERO (opcional básico)
+   HERO (ejemplo mínimo)
 ================================== */
 #home h1, #home h2 { margin: 0 0 8px; }
 #home p { margin: 0; opacity: .9; }
 
 /* ================================
-   TARJETAS (tu estilo refinado)
+   TARJETAS
 ================================== */
-
-/* Grid: 1 columna en móvil, 2 en pantallas medianas+ (estilo revista) */
 .card-grid {
   display: grid;
   gap: 20px;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr; /* 1 columna en móvil */
 }
 @media (min-width: 600px) {
-  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .card-grid { grid-template-columns: repeat(2, 1fr); } /* 2 columnas+ */
 }
-
-/* Tarjeta base (manteniendo tu look) */
 .card {
-  background-color: #4d79e0;                 /* tu fondo de tarjeta */
+  background: var(--card-bg);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0,0,0,0.50);
@@ -133,8 +172,8 @@ section { padding: 40px 0; }
   box-shadow: 0 10px 24px rgba(124,58,237,0.35);
 }
 
-/* Imagen con proporción fija y zoom suave */
-.card img {        /* para compatibilidad con tus tarjetas antiguas */
+/* Imagen de tarjeta con proporción fija y zoom suave */
+.card img {
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
@@ -142,7 +181,7 @@ section { padding: 40px 0; }
 }
 .card:hover img { transform: scale(1.05); }
 
-/* Si usas el contenedor moderno .card-media */
+/* Variante moderna con .card-media */
 .card-media {
   position: relative;
   width: 100%;
@@ -150,12 +189,13 @@ section { padding: 40px 0; }
   overflow: hidden;
 }
 .card-media img {
-  width: 100%; height: 100%; object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: transform 0.35s ease;
 }
 .card:hover .card-media img { transform: scale(1.05); }
 
-/* Cuerpo y tipografías de tarjeta (refinadas) */
 .card-body { padding: 14px; }
 .card-body h3,
 .card-title {
@@ -171,7 +211,7 @@ section { padding: 40px 0; }
   font-size: 14px;
   line-height: 1.45;
   display: -webkit-box;
-  -webkit-line-clamp: 2;          /* máximo 2 líneas */
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin: 0;
@@ -184,7 +224,7 @@ section { padding: 40px 0; }
   color: #94a3b8;
 }
 
-/* Badge mejorado (tu violeta, con degradado sutil) */
+/* Badges */
 .badge {
   display: inline-block;
   background: linear-gradient(135deg, #7c3aed, #4f46e5);
@@ -197,12 +237,10 @@ section { padding: 40px 0; }
   text-transform: uppercase;
   letter-spacing: .3px;
 }
-
-/* Si quieres badge superpuesto en la imagen (estilo Ramen) */
 .badge-overlay {
   position: absolute;
   top: 10px; left: 10px;
-  background: #7c3aed;
+  background: var(--brand-violet);
   color: #fff;
   font-size: 12px; font-weight: 700;
   padding: 4px 10px;
@@ -211,7 +249,5 @@ section { padding: 40px 0; }
   letter-spacing: .3px;
 }
 
-/* ================================
-   UTILIDADES
-================================== */
+
 .hidden { display: none !important; }
