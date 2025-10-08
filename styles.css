@@ -4,10 +4,10 @@
   --cards-max: 920px;            /* ancho máximo de tarjetas (si lo usas) */
 
   --header-height-desktop: 72px; /* alto fijo del header en desktop */
-  --header-height-mobile: 70px;  /* alto fijo del header en móvil */
+  --header-height-mobile: 150px;  /* alto fijo del header en móvil */
 
   --logo-max-desktop: 208px;      /* alto máximo del logo en desktop */
-  --logo-max-mobile: 72px;       /* alto máximo del logo en móvil */
+  --logo-max-mobile: 150px;       /* alto máximo del logo en móvil */
 
   --brand-violet: #7c3aed;
   --text-dark: #0b0e11;
