@@ -73,7 +73,7 @@ section { padding: 40px 0; }
   max-height: 260px;      /* el tamaño que quieras */
   width: auto;
   display: block;
-  margin-top: 30px;
+  margin-top: 35px;
 }
 
 /* Navegación principal dentro del header */
