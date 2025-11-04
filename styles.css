@@ -143,6 +143,51 @@ section { padding: 40px 0; }
   line-height: 1;
   padding: 8px 10px;  /* tamaño razonable sin forzar altura */
 }
+/* 1. La caja que los envuelve */
+.search-container {
+  display: flex; /* Pone los elementos uno al lado del otro */
+  align-items: center; /* Los centra verticalmente */
+  position: relative;
+}
+
+/* 2. El botón-lupa (el "gatillo") */
+.search-icon-btn {
+  background: transparent; /* Quita el fondo gris feo */
+  border: none;          /* Quita el borde feo */
+  cursor: pointer;       /* Pone la manito (como a un enlace) */
+  padding: 5px;          /* Un poco de aire para que no esté pegado */
+}
+
+/* 3. La imagen de la lupa (dentro del botón) */
+.search-icon-btn img {
+  width: 42px;   /* <-- ¡AQUÍ! Pon el mismo tamaño que tu .social-icons .icon */
+  height: auto;
+  display: block; /* Evita espacios raros debajo de la imagen */
+}
+
+.search-input {
+  width: 0;
+  opacity: 0;
+  padding: 0;
+  border: none;
+  transition: all 0.3 ease;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+}
+.search-input.is-open {
+  width: 200px; /* Le damos un ancho para que se vea */
+  opacity: 1;
+  padding: 8px 15px; /* Le devolvemos un padding bonito */ 
+  border: 1px solid #ccc; /* Un borde sutil */
+  border-radius: 20px;   /* ¡Redondeado! */
+  
+}
+
+
 
 /* ================================
    RESPONSIVE (móvil)
