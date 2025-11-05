@@ -51,10 +51,7 @@ section { padding: 40px 0; }
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 1000;
-  background: #ffffff;
-  border-bottom: 1px solid rgba(2,6,23,.08);
-  /* OJO: no uses padding vertical aquí, lo gobierna .header-row */
+  z-index: 1000;     
 }
 
 /* Logo (enlace que envuelve la imagen) */
@@ -181,9 +178,9 @@ section { padding: 40px 0; }
 .search-input.is-open {
   width: 200px; /* Le damos un ancho para que se vea */
   opacity: 1;
-  padding: 8px 15px; /* Le devolvemos un padding bonito */ 
-  border: 1px solid #ccc; /* Un borde sutil */
-  border-radius: 20px;   /* ¡Redondeado! */
+  padding: 8px 15px; 
+  border: 1px solid #ccc; 
+  border-radius: 20px;   
   
 }
 
